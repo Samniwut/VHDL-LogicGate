@@ -1,0 +1,101 @@
+$date
+  Fri Jul 10 01:11:26 2026
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module std_logic_arith $end
+$upscope $end
+$scope module std_logic_unsigned $end
+$upscope $end
+$scope module lab1_tb $end
+$var reg 16 ! input_data[15:0] $end
+$var reg 4 " select_mux[3:0] $end
+$var reg 1 # mux_output $end
+$var reg 4 $ select_demux[3:0] $end
+$var reg 16 % demux_output[15:0] $end
+$scope module mux $end
+$var reg 16 & d[15:0] $end
+$var reg 4 ' s[3:0] $end
+$var reg 1 ( y $end
+$upscope $end
+$scope module demux $end
+$var reg 1 ) d $end
+$var reg 4 * s[3:0] $end
+$var reg 16 + y[15:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+b0101010101010101 !
+b0000 "
+1#
+b0000 $
+b0000000000000001 %
+b0101010101010101 &
+b0000 '
+1(
+1)
+b0000 *
+b0000000000000001 +
+#10000000
+b0001 "
+0#
+b0001 $
+b0000000000000000 %
+b0001 '
+0(
+0)
+b0001 *
+b0000000000000000 +
+#20000000
+b0101 "
+b0101 $
+b0101 '
+b0101 *
+#30000000
+b1010 "
+1#
+b1010 $
+b0000010000000000 %
+b1010 '
+1(
+1)
+b1010 *
+b0000010000000000 +
+#40000000
+b1111 "
+0#
+b1111 $
+b0000000000000000 %
+b1111 '
+0(
+0)
+b1111 *
+b0000000000000000 +
+#50000000
+b1111000011110000 !
+b0111 "
+1#
+b0111 $
+b0000000010000000 %
+b1111000011110000 &
+b0111 '
+1(
+1)
+b0111 *
+b0000000010000000 +
+#60000000
+b1100 "
+b0011 $
+b0000000000001000 %
+b1100 '
+b0011 *
+b0000000000001000 +

@@ -1,0 +1,10 @@
+v 4
+file "/Users/mac_sam/Desktop/Learning-69/CE-200-Digital/VHDL-OS/lab-1-mux-demux/" "mux_16to1_structural.vhdl" "2c102011d4fa5a49011d6f8af3f3a892891343fc" "20260710032743.503":
+  entity mux_16to1_structural at 1( 0) + 0 on 13;
+  architecture structural of mux_16to1_structural at 12( 316) + 0 on 14;
+file "/Users/mac_sam/Desktop/Learning-69/CE-200-Digital/VHDL-OS/lab-1-mux-demux/" "demux_1to16_structural.vhdl" "3799230e72ad2ec51edbb0c6af36049d983902e0" "20260710032743.560":
+  entity demux_1to16_structural at 1( 0) + 0 on 15;
+  architecture structural of demux_1to16_structural at 12( 319) + 0 on 16;
+file "/Users/mac_sam/Desktop/Learning-69/CE-200-Digital/VHDL-OS/lab-1-mux-demux/" "testbench_structural.vhdl" "f82442fb285eb32705f98009ec90a87dfac56c26" "20260710032743.289":
+  entity lab1_tb_structural at 1( 0) + 0 on 11;
+  architecture test of lab1_tb_structural at 9( 161) + 0 on 12;
