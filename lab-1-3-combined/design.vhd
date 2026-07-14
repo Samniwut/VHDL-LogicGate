@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 -- Input Selector (Mux 16->1) - Select which input D0-D15 becomes the signal
-entity input_mux_16to1 is
+entity mux_16to1 is
 port(
   S3: in std_logic;
   S2: in std_logic;
@@ -26,12 +26,12 @@ port(
   D14: in std_logic;
   D15: in std_logic;
 
-  Signal_out: out std_logic);
-end input_mux_16to1;
+  Y_out: out std_logic);
+end mux_16to1;
 
-architecture rtl_input_mux of input_mux_16to1 is
+architecture rtl_input_mux of mux_16to1 is
 begin
-  Signal_out <= (D0 and not S3 and not S2 and not S1 and not S0) or
+  Y_out <= (D0 and not S3 and not S2 and not S1 and not S0) or
                 (D1 and not S3 and not S2 and not S1 and S0) or
                 (D2 and not S3 and not S2 and S1 and not S0) or
                 (D3 and not S3 and not S2 and S1 and S0) or
@@ -53,14 +53,14 @@ end rtl_input_mux;
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity output_demux_1to16 is
+entity demux_1to16 is
 port(
   S3: in std_logic;
   S2: in std_logic;
   S1: in std_logic;
   S0: in std_logic;
 
-  Signal_in: in std_logic;
+  Y_in: in std_logic;
 
   D0: out std_logic;
   D1: out std_logic;
@@ -78,26 +78,26 @@ port(
   D13: out std_logic;
   D14: out std_logic;
   D15: out std_logic);
-end output_demux_1to16;
+end demux_1to16;
 
-architecture rtl_output_demux of output_demux_1to16 is
+architecture rtl_output_demux of demux_1to16 is
 begin
-  D0 <= Signal_in and not S3 and not S2 and not S1 and not S0;
-  D1 <= Signal_in and not S3 and not S2 and not S1 and S0;
-  D2 <= Signal_in and not S3 and not S2 and S1 and not S0;
-  D3 <= Signal_in and not S3 and not S2 and S1 and S0;
-  D4 <= Signal_in and not S3 and S2 and not S1 and not S0;
-  D5 <= Signal_in and not S3 and S2 and not S1 and S0;
-  D6 <= Signal_in and not S3 and S2 and S1 and not S0;
-  D7 <= Signal_in and not S3 and S2 and S1 and S0;
-  D8 <= Signal_in and S3 and not S2 and not S1 and not S0;
-  D9 <= Signal_in and S3 and not S2 and not S1 and S0;
-  D10 <= Signal_in and S3 and not S2 and S1 and not S0;
-  D11 <= Signal_in and S3 and not S2 and S1 and S0;
-  D12 <= Signal_in and S3 and S2 and not S1 and not S0;
-  D13 <= Signal_in and S3 and S2 and not S1 and S0;
-  D14 <= Signal_in and S3 and S2 and S1 and not S0;
-  D15 <= Signal_in and S3 and S2 and S1 and S0;
+  D0 <= Y_in and not S3 and not S2 and not S1 and not S0;
+  D1 <= Y_in and not S3 and not S2 and not S1 and S0;
+  D2 <= Y_in and not S3 and not S2 and S1 and not S0;
+  D3 <= Y_in and not S3 and not S2 and S1 and S0;
+  D4 <= Y_in and not S3 and S2 and not S1 and not S0;
+  D5 <= Y_in and not S3 and S2 and not S1 and S0;
+  D6 <= Y_in and not S3 and S2 and S1 and not S0;
+  D7 <= Y_in and not S3 and S2 and S1 and S0;
+  D8 <= Y_in and S3 and not S2 and not S1 and not S0;
+  D9 <= Y_in and S3 and not S2 and not S1 and S0;
+  D10 <= Y_in and S3 and not S2 and S1 and not S0;
+  D11 <= Y_in and S3 and not S2 and S1 and S0;
+  D12 <= Y_in and S3 and S2 and not S1 and not S0;
+  D13 <= Y_in and S3 and S2 and not S1 and S0;
+  D14 <= Y_in and S3 and S2 and S1 and not S0;
+  D15 <= Y_in and S3 and S2 and S1 and S0;
 end rtl_output_demux;
 
 -- Combined Selector (Top-level)
@@ -160,7 +160,7 @@ architecture rtl_combined of combined_selector is
   signal internal_signal: std_logic;
 
   -- Component declarations
-  component input_mux_16to1 is
+  component mux_16to1 is
   port(
     S3: in std_logic;
     S2: in std_logic;
@@ -182,17 +182,17 @@ architecture rtl_combined of combined_selector is
     D13: in std_logic;
     D14: in std_logic;
     D15: in std_logic;
-    Signal_out: out std_logic);
+    Y_out: out std_logic);
   end component;
 
-  component output_demux_1to16 is
+  component demux_1to16 is
   port(
     S3: in std_logic;
     S2: in std_logic;
     S1: in std_logic;
     S0: in std_logic;
     
-    Signal_in: in std_logic;
+    Y_in: in std_logic;
     D0: out std_logic;
     D1: out std_logic;
     D2: out std_logic;
@@ -213,7 +213,7 @@ architecture rtl_combined of combined_selector is
 
 begin
   -- Instance Input Selector
-  INPUT_INST: input_mux_16to1 port map(
+  INPUT_INST: mux_16to1 port map(
     S3 => S3_input,
     S2 => S2_input,
     S1 => S1_input,
@@ -234,15 +234,15 @@ begin
     D13 => D13_in,
     D14 => D14_in,
     D15 => D15_in,
-    Signal_out => internal_signal);
+    Y_out => internal_signal);
 
   -- Instance Output Selector
-  OUTPUT_INST: output_demux_1to16 port map(
+  OUTPUT_INST: demux_1to16 port map(
     S3 => S3_output,
     S2 => S2_output,
     S1 => S1_output,
     S0 => S0_output,
-    Signal_in => internal_signal,
+    Y_in => internal_signal,
     D0 => D0_out,
     D1 => D1_out,
     D2 => D2_out,

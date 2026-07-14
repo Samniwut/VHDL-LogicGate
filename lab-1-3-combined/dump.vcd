@@ -1,5 +1,5 @@
 $date
-  Tue Jul 14 12:58:52 2026
+  Tue Jul 14 16:52:32 2026
 $end
 $version
   GHDL v0
@@ -12,46 +12,46 @@ $upscope $end
 $scope module std_logic_1164 $end
 $upscope $end
 $scope module testbench $end
-$var reg 1 ! s3_input_in $end
-$var reg 1 " s2_input_in $end
-$var reg 1 # s1_input_in $end
-$var reg 1 $ s0_input_in $end
-$var reg 1 % d0_in_sig $end
-$var reg 1 & d1_in_sig $end
-$var reg 1 ' d2_in_sig $end
-$var reg 1 ( d3_in_sig $end
-$var reg 1 ) d4_in_sig $end
-$var reg 1 * d5_in_sig $end
-$var reg 1 + d6_in_sig $end
-$var reg 1 , d7_in_sig $end
-$var reg 1 - d8_in_sig $end
-$var reg 1 . d9_in_sig $end
-$var reg 1 / d10_in_sig $end
-$var reg 1 0 d11_in_sig $end
-$var reg 1 1 d12_in_sig $end
-$var reg 1 2 d13_in_sig $end
-$var reg 1 3 d14_in_sig $end
-$var reg 1 4 d15_in_sig $end
-$var reg 1 5 s3_output_in $end
-$var reg 1 6 s2_output_in $end
-$var reg 1 7 s1_output_in $end
-$var reg 1 8 s0_output_in $end
-$var reg 1 9 d0_out_sig $end
-$var reg 1 : d1_out_sig $end
-$var reg 1 ; d2_out_sig $end
-$var reg 1 < d3_out_sig $end
-$var reg 1 = d4_out_sig $end
-$var reg 1 > d5_out_sig $end
-$var reg 1 ? d6_out_sig $end
-$var reg 1 @ d7_out_sig $end
-$var reg 1 A d8_out_sig $end
-$var reg 1 B d9_out_sig $end
-$var reg 1 C d10_out_sig $end
-$var reg 1 D d11_out_sig $end
-$var reg 1 E d12_out_sig $end
-$var reg 1 F d13_out_sig $end
-$var reg 1 G d14_out_sig $end
-$var reg 1 H d15_out_sig $end
+$var reg 1 ! s3_mux $end
+$var reg 1 " s2_mux $end
+$var reg 1 # s1_mux $end
+$var reg 1 $ s0_mux $end
+$var reg 1 % d0_mux $end
+$var reg 1 & d1_mux $end
+$var reg 1 ' d2_mux $end
+$var reg 1 ( d3_mux $end
+$var reg 1 ) d4_mux $end
+$var reg 1 * d5_mux $end
+$var reg 1 + d6_mux $end
+$var reg 1 , d7_mux $end
+$var reg 1 - d8_mux $end
+$var reg 1 . d9_mux $end
+$var reg 1 / d10_mux $end
+$var reg 1 0 d11_mux $end
+$var reg 1 1 d12_mux $end
+$var reg 1 2 d13_mux $end
+$var reg 1 3 d14_mux $end
+$var reg 1 4 d15_mux $end
+$var reg 1 5 s3_demux $end
+$var reg 1 6 s2_demux $end
+$var reg 1 7 s1_demux $end
+$var reg 1 8 s0_demux $end
+$var reg 1 9 d0_demux $end
+$var reg 1 : d1_demux $end
+$var reg 1 ; d2_demux $end
+$var reg 1 < d3_demux $end
+$var reg 1 = d4_demux $end
+$var reg 1 > d5_demux $end
+$var reg 1 ? d6_demux $end
+$var reg 1 @ d7_demux $end
+$var reg 1 A d8_demux $end
+$var reg 1 B d9_demux $end
+$var reg 1 C d10_demux $end
+$var reg 1 D d11_demux $end
+$var reg 1 E d12_demux $end
+$var reg 1 F d13_demux $end
+$var reg 1 G d14_demux $end
+$var reg 1 H d15_demux $end
 $scope module dut $end
 $var reg 1 I s3_input $end
 $var reg 1 J s2_input $end
@@ -115,14 +115,14 @@ $var reg 1 %" d12 $end
 $var reg 1 &" d13 $end
 $var reg 1 '" d14 $end
 $var reg 1 (" d15 $end
-$var reg 1 )" signal_out $end
+$var reg 1 )" y_out $end
 $upscope $end
 $scope module output_inst $end
 $var reg 1 *" s3 $end
 $var reg 1 +" s2 $end
 $var reg 1 ," s1 $end
 $var reg 1 -" s0 $end
-$var reg 1 ." signal_in $end
+$var reg 1 ." y_in $end
 $var reg 1 /" d0 $end
 $var reg 1 0" d1 $end
 $var reg 1 1" d2 $end
