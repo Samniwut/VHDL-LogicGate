@@ -1,14 +1,13 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
-
-entity and_gate is
+entity demux1to16 is
 port(
   S3: in std_logic;
   S2: in std_logic;
   S1: in std_logic;
   S0: in std_logic;
 
-  In_signal: in std_logic;
+  Y: in std_logic;
 
   D0: out std_logic;
   D1: out std_logic;
@@ -26,24 +25,24 @@ port(
   D13: out std_logic;
   D14: out std_logic;
   D15: out std_logic);
-end and_gate;
+end demux1to16;
 
-architecture rtl of and_gate is
+architecture rtl of demux1to16 is
 begin
-  D0 <= In_signal and not S3 and not S2 and not S1 and not S0;
-  D1 <= In_signal and not S3 and not S2 and not S1 and S0;
-  D2 <= In_signal and not S3 and not S2 and S1 and not S0;
-  D3 <= In_signal and not S3 and not S2 and S1 and S0;
-  D4 <= In_signal and not S3 and S2 and not S1 and not S0;
-  D5 <= In_signal and not S3 and S2 and not S1 and S0;
-  D6 <= In_signal and not S3 and S2 and S1 and not S0;
-  D7 <= In_signal and not S3 and S2 and S1 and S0;
-  D8 <= In_signal and S3 and not S2 and not S1 and not S0;
-  D9 <= In_signal and S3 and not S2 and not S1 and S0;
-  D10 <= In_signal and S3 and not S2 and S1 and not S0;
-  D11 <= In_signal and S3 and not S2 and S1 and S0;
-  D12 <= In_signal and S3 and S2 and not S1 and not S0;
-  D13 <= In_signal and S3 and S2 and not S1 and S0;
-  D14 <= In_signal and S3 and S2 and S1 and not S0;
-  D15 <= In_signal and S3 and S2 and S1 and S0;
+  D0 <= Y and not S3 and not S2 and not S1 and not S0;
+  D1 <= Y and not S3 and not S2 and not S1 and S0;
+  D2 <= Y and not S3 and not S2 and S1 and not S0;
+  D3 <= Y and not S3 and not S2 and S1 and S0;
+  D4 <= Y and not S3 and S2 and not S1 and not S0;
+  D5 <= Y and not S3 and S2 and not S1 and S0;
+  D6 <= Y and not S3 and S2 and S1 and not S0;
+  D7 <= Y and not S3 and S2 and S1 and S0;
+  D8 <= Y and S3 and not S2 and not S1 and not S0;
+  D9 <= Y and S3 and not S2 and not S1 and S0;
+  D10 <= Y and S3 and not S2 and S1 and not S0;
+  D11 <= Y and S3 and not S2 and S1 and S0;
+  D12 <= Y and S3 and S2 and not S1 and not S0;
+  D13 <= Y and S3 and S2 and not S1 and S0;
+  D14 <= Y and S3 and S2 and S1 and not S0;
+  D15 <= Y and S3 and S2 and S1 and S0;
 end rtl;

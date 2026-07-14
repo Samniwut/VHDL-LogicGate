@@ -9,14 +9,14 @@ end testbench;
 architecture tb of testbench is
 
 -- DUT component
-component and_gate is
+component demux1to16 is
 port(
   S3: in std_logic;
   S2: in std_logic;
   S1: in std_logic;
   S0: in std_logic;
 
-  In_signal: in std_logic;
+  Y: in std_logic;
 
   D0: out std_logic;
   D1: out std_logic;
@@ -38,22 +38,22 @@ end component;
 
 -- Signals
 signal S3_in, S2_in, S1_in, S0_in: std_logic;
-signal In_signal_in: std_logic;
+signal Y: std_logic;
 signal D0_out, D1_out, D2_out, D3_out, D4_out, D5_out, D6_out, D7_out: std_logic;
 signal D8_out, D9_out, D10_out, D11_out, D12_out, D13_out, D14_out, D15_out: std_logic;
 
 begin
 
   -- Connect DUT
-  DUT: and_gate port map(
+  DUT: demux1to16 port map(
     S3_in, S2_in, S1_in, S0_in,
-    In_signal_in,
+    Y,
     D0_out, D1_out, D2_out, D3_out, D4_out, D5_out, D6_out, D7_out,
     D8_out, D9_out, D10_out, D11_out, D12_out, D13_out, D14_out, D15_out);
 
   process
   begin
-    In_signal_in <= '1';  -- Set input signal to 1
+    Y <= '1';  -- Set input signal to 1
 
     -- Test D0 (S3=0, S2=0, S1=0, S0=0)
     S3_in <= '0'; S2_in <= '0'; S1_in <= '0'; S0_in <= '0';
@@ -139,7 +139,6 @@ begin
     
     S3_in <= '0'; S2_in <= '0'; S1_in <= '0'; S0_in <= '0';
     wait for 1 ns;
-
 
     assert false report "Test done." severity note;
     wait;

@@ -1,5 +1,5 @@
 $date
-  Tue Jul 14 12:36:53 2026
+  Tue Jul 14 16:16:10 2026
 $end
 $version
   GHDL v0
@@ -32,7 +32,7 @@ $var reg 1 1 d12_in $end
 $var reg 1 2 d13_in $end
 $var reg 1 3 d14_in $end
 $var reg 1 4 d15_in $end
-$var reg 1 5 y_out $end
+$var reg 1 5 y $end
 $scope module dut $end
 $var reg 1 6 s3 $end
 $var reg 1 7 s2 $end

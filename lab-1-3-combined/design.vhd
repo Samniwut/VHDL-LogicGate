@@ -191,6 +191,7 @@ architecture rtl_combined of combined_selector is
     S2: in std_logic;
     S1: in std_logic;
     S0: in std_logic;
+    
     Signal_in: in std_logic;
     D0: out std_logic;
     D1: out std_logic;

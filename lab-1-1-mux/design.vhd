@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity and_gate is
+entity Mux16to1 is
 port(
   S3: in std_logic;
   S2: in std_logic;
@@ -26,9 +26,9 @@ port(
   D15: in std_logic;
   
   Y: out std_logic);
-end and_gate;
+end Mux16to1 ;
 
-architecture rtl of and_gate is
+architecture rtl of Mux16to1  is
 begin
   Y <= (D0 and not S3 and not S2 and not S1 and not S0) or
        (D1 and not S3 and not S2 and not S1 and S0) or

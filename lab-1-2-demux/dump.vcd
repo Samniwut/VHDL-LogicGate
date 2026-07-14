@@ -1,5 +1,5 @@
 $date
-  Tue Jul 14 12:44:26 2026
+  Tue Jul 14 16:20:35 2026
 $end
 $version
   GHDL v0
@@ -16,7 +16,7 @@ $var reg 1 ! s3_in $end
 $var reg 1 " s2_in $end
 $var reg 1 # s1_in $end
 $var reg 1 $ s0_in $end
-$var reg 1 % in_signal_in $end
+$var reg 1 % y $end
 $var reg 1 & d0_out $end
 $var reg 1 ' d1_out $end
 $var reg 1 ( d2_out $end
@@ -38,7 +38,7 @@ $var reg 1 6 s3 $end
 $var reg 1 7 s2 $end
 $var reg 1 8 s1 $end
 $var reg 1 9 s0 $end
-$var reg 1 : in_signal $end
+$var reg 1 : y $end
 $var reg 1 ; d0 $end
 $var reg 1 < d1 $end
 $var reg 1 = d2 $end
