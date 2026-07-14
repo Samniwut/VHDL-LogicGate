@@ -11,49 +11,51 @@ architecture tb of testbench is
 -- DUT component
 component combined_selector is
 port(
-  S3_input: in std_logic;
-  S2_input: in std_logic;
-  S1_input: in std_logic;
-  S0_input: in std_logic;
+  S3_mux: in std_logic;
+  S2_mux: in std_logic;
+  S1_mux: in std_logic;
+  S0_mux: in std_logic;
 
-  D0_in: in std_logic;
-  D1_in: in std_logic;
-  D2_in: in std_logic;
-  D3_in: in std_logic;
-  D4_in: in std_logic;
-  D5_in: in std_logic;
-  D6_in: in std_logic;
-  D7_in: in std_logic;
-  D8_in: in std_logic;
-  D9_in: in std_logic;
-  D10_in: in std_logic;
-  D11_in: in std_logic;
-  D12_in: in std_logic;
-  D13_in: in std_logic;
-  D14_in: in std_logic;
-  D15_in: in std_logic;
+  D0_mux: in std_logic;
+  D1_mux: in std_logic;
+  D2_mux: in std_logic;
+  D3_mux: in std_logic;
+  D4_mux: in std_logic;
+  D5_mux: in std_logic;
+  D6_mux: in std_logic;
+  D7_mux: in std_logic;
+  D8_mux: in std_logic;
+  D9_mux: in std_logic;
+  D10_mux: in std_logic;
+  D11_mux: in std_logic;
+  D12_mux: in std_logic;
+  D13_mux: in std_logic;
+  D14_mux: in std_logic;
+  D15_mux: in std_logic;
 
-  S3_output: in std_logic;
-  S2_output: in std_logic;
-  S1_output: in std_logic;
-  S0_output: in std_logic;
+  S3_demux: in std_logic;
+  S2_demux: in std_logic;
+  S1_demux: in std_logic;
+  S0_demux: in std_logic;
 
-  D0_out: out std_logic;
-  D1_out: out std_logic;
-  D2_out: out std_logic;
-  D3_out: out std_logic;
-  D4_out: out std_logic;
-  D5_out: out std_logic;
-  D6_out: out std_logic;
-  D7_out: out std_logic;
-  D8_out: out std_logic;
-  D9_out: out std_logic;
-  D10_out: out std_logic;
-  D11_out: out std_logic;
-  D12_out: out std_logic;
-  D13_out: out std_logic;
-  D14_out: out std_logic;
-  D15_out: out std_logic);
+  D0_demux: out std_logic;
+  D1_demux: out std_logic;
+  D2_demux: out std_logic;
+  D3_demux: out std_logic;
+  D4_demux: out std_logic;
+  D5_demux: out std_logic;
+  D6_demux: out std_logic;
+  D7_demux: out std_logic;
+  D8_demux: out std_logic;
+  D9_demux: out std_logic;
+  D10_demux: out std_logic;
+  D11_demux: out std_logic;
+  D12_demux: out std_logic;
+  D13_demux: out std_logic;
+  D14_demux: out std_logic;
+  D15_demux: out std_logic;
+
+  Y: buffer std_logic);
 end component;
 
 -- Signals for MUX (Input Selector)
@@ -66,57 +68,62 @@ signal S3_demux, S2_demux, S1_demux, S0_demux: std_logic;
 signal D0_demux, D1_demux, D2_demux, D3_demux, D4_demux, D5_demux, D6_demux, D7_demux: std_logic;
 signal D8_demux, D9_demux, D10_demux, D11_demux, D12_demux, D13_demux, D14_demux, D15_demux: std_logic;
 
+-- Debug: MUX output
+signal Y: std_logic;
+
 begin
 
   -- Connect DUT
   DUT: combined_selector port map(
     -- MUX Select (Input Selector)
-    S3_input => S3_mux,
-    S2_input => S2_mux,
-    S1_input => S1_mux,
-    S0_input => S0_mux,
+    S3_mux => S3_mux,
+    S2_mux => S2_mux,
+    S1_mux => S1_mux,
+    S0_mux => S0_mux,
 
     -- MUX Inputs (16 data lines)
-    D0_in => D0_mux,
-    D1_in => D1_mux,
-    D2_in => D2_mux,
-    D3_in => D3_mux,
-    D4_in => D4_mux,
-    D5_in => D5_mux,
-    D6_in => D6_mux,
-    D7_in => D7_mux,
-    D8_in => D8_mux,
-    D9_in => D9_mux,
-    D10_in => D10_mux,
-    D11_in => D11_mux,
-    D12_in => D12_mux,
-    D13_in => D13_mux,
-    D14_in => D14_mux,
-    D15_in => D15_mux,
+    D0_mux => D0_mux,
+    D1_mux => D1_mux,
+    D2_mux => D2_mux,
+    D3_mux => D3_mux,
+    D4_mux => D4_mux,
+    D5_mux => D5_mux,
+    D6_mux => D6_mux,
+    D7_mux => D7_mux,
+    D8_mux => D8_mux,
+    D9_mux => D9_mux,
+    D10_mux => D10_mux,
+    D11_mux => D11_mux,
+    D12_mux => D12_mux,
+    D13_mux => D13_mux,
+    D14_mux => D14_mux,
+    D15_mux => D15_mux,
 
     -- DEMUX Select (Output Selector)
-    S3_output => S3_demux,
-    S2_output => S2_demux,
-    S1_output => S1_demux,
-    S0_output => S0_demux,
+    S3_demux => S3_demux,
+    S2_demux => S2_demux,
+    S1_demux => S1_demux,
+    S0_demux => S0_demux,
 
     -- DEMUX Outputs (16 data lines)
-    D0_out => D0_demux,
-    D1_out => D1_demux,
-    D2_out => D2_demux,
-    D3_out => D3_demux,
-    D4_out => D4_demux,
-    D5_out => D5_demux,
-    D6_out => D6_demux,
-    D7_out => D7_demux,
-    D8_out => D8_demux,
-    D9_out => D9_demux,
-    D10_out => D10_demux,
-    D11_out => D11_demux,
-    D12_out => D12_demux,
-    D13_out => D13_demux,
-    D14_out => D14_demux,
-    D15_out => D15_demux);
+    D0_demux => D0_demux,
+    D1_demux => D1_demux,
+    D2_demux => D2_demux,
+    D3_demux => D3_demux,
+    D4_demux => D4_demux,
+    D5_demux => D5_demux,
+    D6_demux => D6_demux,
+    D7_demux => D7_demux,
+    D8_demux => D8_demux,
+    D9_demux => D9_demux,
+    D10_demux => D10_demux,
+    D11_demux => D11_demux,
+    D12_demux => D12_demux,
+    D13_demux => D13_demux,
+    D14_demux => D14_demux,
+    D15_demux => D15_demux,
+
+    Y => Y);
 
   process
   begin
