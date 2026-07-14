@@ -136,6 +136,10 @@ begin
     S3_in <= '1'; S2_in <= '1'; S1_in <= '1'; S0_in <= '1';
     wait for 1 ns;
     assert(D15_out='1') report "Fail: D15 should be 1" severity error;
+    
+    S3_in <= '0'; S2_in <= '0'; S1_in <= '0'; S0_in <= '0';
+    wait for 1 ns;
+
 
     assert false report "Test done." severity note;
     wait;
