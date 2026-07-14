@@ -31,44 +31,22 @@ end input_mux_16to1;
 
 architecture rtl_input_mux of input_mux_16to1 is
 begin
-  process(S3, S2, S1, S0, D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15) is
-  begin
-    if (S3='0' and S2='0' and S1='0' and S0='0') then
-      Signal_out <= D0;
-    elsif (S3='0' and S2='0' and S1='0' and S0='1') then
-      Signal_out <= D1;
-    elsif (S3='0' and S2='0' and S1='1' and S0='0') then
-      Signal_out <= D2;
-    elsif (S3='0' and S2='0' and S1='1' and S0='1') then
-      Signal_out <= D3;
-    elsif (S3='0' and S2='1' and S1='0' and S0='0') then
-      Signal_out <= D4;
-    elsif (S3='0' and S2='1' and S1='0' and S0='1') then
-      Signal_out <= D5;
-    elsif (S3='0' and S2='1' and S1='1' and S0='0') then
-      Signal_out <= D6;
-    elsif (S3='0' and S2='1' and S1='1' and S0='1') then
-      Signal_out <= D7;
-    elsif (S3='1' and S2='0' and S1='0' and S0='0') then
-      Signal_out <= D8;
-    elsif (S3='1' and S2='0' and S1='0' and S0='1') then
-      Signal_out <= D9;
-    elsif (S3='1' and S2='0' and S1='1' and S0='0') then
-      Signal_out <= D10;
-    elsif (S3='1' and S2='0' and S1='1' and S0='1') then
-      Signal_out <= D11;
-    elsif (S3='1' and S2='1' and S1='0' and S0='0') then
-      Signal_out <= D12;
-    elsif (S3='1' and S2='1' and S1='0' and S0='1') then
-      Signal_out <= D13;
-    elsif (S3='1' and S2='1' and S1='1' and S0='0') then
-      Signal_out <= D14;
-    elsif (S3='1' and S2='1' and S1='1' and S0='1') then
-      Signal_out <= D15;
-    else
-      Signal_out <= '0';
-    end if;
-  end process;
+  Signal_out <= (D0 and not S3 and not S2 and not S1 and not S0) or
+                (D1 and not S3 and not S2 and not S1 and S0) or
+                (D2 and not S3 and not S2 and S1 and not S0) or
+                (D3 and not S3 and not S2 and S1 and S0) or
+                (D4 and not S3 and S2 and not S1 and not S0) or
+                (D5 and not S3 and S2 and not S1 and S0) or
+                (D6 and not S3 and S2 and S1 and not S0) or
+                (D7 and not S3 and S2 and S1 and S0) or
+                (D8 and S3 and not S2 and not S1 and not S0) or
+                (D9 and S3 and not S2 and not S1 and S0) or
+                (D10 and S3 and not S2 and S1 and not S0) or
+                (D11 and S3 and not S2 and S1 and S0) or
+                (D12 and S3 and S2 and not S1 and not S0) or
+                (D13 and S3 and S2 and not S1 and S0) or
+                (D14 and S3 and S2 and S1 and not S0) or
+                (D15 and S3 and S2 and S1 and S0);
 end rtl_input_mux;
 
 -- Output Selector (Demux 1->16) - Select which output D0-D15 receives the signal
@@ -104,47 +82,22 @@ end output_demux_1to16;
 
 architecture rtl_output_demux of output_demux_1to16 is
 begin
-  process(S3, S2, S1, S0, Signal_in) is
-  begin
-    D0 <= '0'; D1 <= '0'; D2 <= '0'; D3 <= '0';
-    D4 <= '0'; D5 <= '0'; D6 <= '0'; D7 <= '0';
-    D8 <= '0'; D9 <= '0'; D10 <= '0'; D11 <= '0';
-    D12 <= '0'; D13 <= '0'; D14 <= '0'; D15 <= '0';
-
-    if (S3='0' and S2='0' and S1='0' and S0='0') then
-      D0 <= Signal_in;
-    elsif (S3='0' and S2='0' and S1='0' and S0='1') then
-      D1 <= Signal_in;
-    elsif (S3='0' and S2='0' and S1='1' and S0='0') then
-      D2 <= Signal_in;
-    elsif (S3='0' and S2='0' and S1='1' and S0='1') then
-      D3 <= Signal_in;
-    elsif (S3='0' and S2='1' and S1='0' and S0='0') then
-      D4 <= Signal_in;
-    elsif (S3='0' and S2='1' and S1='0' and S0='1') then
-      D5 <= Signal_in;
-    elsif (S3='0' and S2='1' and S1='1' and S0='0') then
-      D6 <= Signal_in;
-    elsif (S3='0' and S2='1' and S1='1' and S0='1') then
-      D7 <= Signal_in;
-    elsif (S3='1' and S2='0' and S1='0' and S0='0') then
-      D8 <= Signal_in;
-    elsif (S3='1' and S2='0' and S1='0' and S0='1') then
-      D9 <= Signal_in;
-    elsif (S3='1' and S2='0' and S1='1' and S0='0') then
-      D10 <= Signal_in;
-    elsif (S3='1' and S2='0' and S1='1' and S0='1') then
-      D11 <= Signal_in;
-    elsif (S3='1' and S2='1' and S1='0' and S0='0') then
-      D12 <= Signal_in;
-    elsif (S3='1' and S2='1' and S1='0' and S0='1') then
-      D13 <= Signal_in;
-    elsif (S3='1' and S2='1' and S1='1' and S0='0') then
-      D14 <= Signal_in;
-    elsif (S3='1' and S2='1' and S1='1' and S0='1') then
-      D15 <= Signal_in;
-    end if;
-  end process;
+  D0 <= Signal_in and not S3 and not S2 and not S1 and not S0;
+  D1 <= Signal_in and not S3 and not S2 and not S1 and S0;
+  D2 <= Signal_in and not S3 and not S2 and S1 and not S0;
+  D3 <= Signal_in and not S3 and not S2 and S1 and S0;
+  D4 <= Signal_in and not S3 and S2 and not S1 and not S0;
+  D5 <= Signal_in and not S3 and S2 and not S1 and S0;
+  D6 <= Signal_in and not S3 and S2 and S1 and not S0;
+  D7 <= Signal_in and not S3 and S2 and S1 and S0;
+  D8 <= Signal_in and S3 and not S2 and not S1 and not S0;
+  D9 <= Signal_in and S3 and not S2 and not S1 and S0;
+  D10 <= Signal_in and S3 and not S2 and S1 and not S0;
+  D11 <= Signal_in and S3 and not S2 and S1 and S0;
+  D12 <= Signal_in and S3 and S2 and not S1 and not S0;
+  D13 <= Signal_in and S3 and S2 and not S1 and S0;
+  D14 <= Signal_in and S3 and S2 and S1 and not S0;
+  D15 <= Signal_in and S3 and S2 and S1 and S0;
 end rtl_output_demux;
 
 -- Combined Selector (Top-level)
