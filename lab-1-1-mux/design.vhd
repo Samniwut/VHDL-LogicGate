@@ -1,13 +1,11 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
-
 entity Mux16to1 is
 port(
   S3: in std_logic;
   S2: in std_logic;
   S1: in std_logic;
   S0: in std_logic;
-
   D0: in std_logic;
   D1: in std_logic;
   D2: in std_logic;
@@ -24,10 +22,8 @@ port(
   D13: in std_logic;
   D14: in std_logic;
   D15: in std_logic;
-  
   Y: out std_logic);
 end Mux16to1 ;
-
 architecture rtl of Mux16to1  is
 begin
   Y <= (D0 and not S3 and not S2 and not S1 and not S0) or
