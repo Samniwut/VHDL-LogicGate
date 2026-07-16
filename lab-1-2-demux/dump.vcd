@@ -1,5 +1,5 @@
 $date
-  Tue Jul 14 16:20:35 2026
+  Thu Jul 16 12:21:32 2026
 $end
 $version
   GHDL v0
@@ -12,27 +12,27 @@ $upscope $end
 $scope module std_logic_1164 $end
 $upscope $end
 $scope module testbench $end
-$var reg 1 ! s3_in $end
-$var reg 1 " s2_in $end
-$var reg 1 # s1_in $end
-$var reg 1 $ s0_in $end
+$var reg 1 ! s3 $end
+$var reg 1 " s2 $end
+$var reg 1 # s1 $end
+$var reg 1 $ s0 $end
 $var reg 1 % y $end
-$var reg 1 & d0_out $end
-$var reg 1 ' d1_out $end
-$var reg 1 ( d2_out $end
-$var reg 1 ) d3_out $end
-$var reg 1 * d4_out $end
-$var reg 1 + d5_out $end
-$var reg 1 , d6_out $end
-$var reg 1 - d7_out $end
-$var reg 1 . d8_out $end
-$var reg 1 / d9_out $end
-$var reg 1 0 d10_out $end
-$var reg 1 1 d11_out $end
-$var reg 1 2 d12_out $end
-$var reg 1 3 d13_out $end
-$var reg 1 4 d14_out $end
-$var reg 1 5 d15_out $end
+$var reg 1 & d0 $end
+$var reg 1 ' d1 $end
+$var reg 1 ( d2 $end
+$var reg 1 ) d3 $end
+$var reg 1 * d4 $end
+$var reg 1 + d5 $end
+$var reg 1 , d6 $end
+$var reg 1 - d7 $end
+$var reg 1 . d8 $end
+$var reg 1 / d9 $end
+$var reg 1 0 d10 $end
+$var reg 1 1 d11 $end
+$var reg 1 2 d12 $end
+$var reg 1 3 d13 $end
+$var reg 1 4 d14 $end
+$var reg 1 5 d15 $end
 $scope module dut $end
 $var reg 1 6 s3 $end
 $var reg 1 7 s2 $end

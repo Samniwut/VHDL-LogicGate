@@ -37,107 +37,107 @@ port(
 end component;
 
 -- Signals
-signal S3_in, S2_in, S1_in, S0_in: std_logic;
+signal S3, S2, S1, S0: std_logic;
 signal Y: std_logic;
-signal D0_out, D1_out, D2_out, D3_out, D4_out, D5_out, D6_out, D7_out: std_logic;
-signal D8_out, D9_out, D10_out, D11_out, D12_out, D13_out, D14_out, D15_out: std_logic;
+signal D0, D1, D2, D3, D4, D5, D6, D7: std_logic;
+signal D8, D9, D10, D11, D12, D13, D14, D15: std_logic;
 
 begin
 
   -- Connect DUT
   DUT: demux1to16 port map(
-    S3_in, S2_in, S1_in, S0_in,
+    S3, S2, S1, S0,
     Y,
-    D0_out, D1_out, D2_out, D3_out, D4_out, D5_out, D6_out, D7_out,
-    D8_out, D9_out, D10_out, D11_out, D12_out, D13_out, D14_out, D15_out);
+    D0, D1, D2, D3, D4, D5, D6, D7,
+    D8, D9, D10, D11, D12, D13, D14, D15);
 
   process
   begin
     Y <= '1';  -- Set input signal to 1
 
     -- Test D0 (S3=0, S2=0, S1=0, S0=0)
-    S3_in <= '0'; S2_in <= '0'; S1_in <= '0'; S0_in <= '0';
+    S3 <= '0'; S2 <= '0'; S1 <= '0'; S0 <= '0';
     wait for 1 ns;
-    assert(D0_out='1') report "Fail: D0 should be 1" severity error;
-    assert(D1_out='0') report "Fail: D1 should be 0" severity error;
+    assert(D0='1') report "Fail: D0 should be 1" severity error;
+    assert(D1='0') report "Fail: D1 should be 0" severity error;
 
     -- Test D1 (S3=0, S2=0, S1=0, S0=1)
-    S3_in <= '0'; S2_in <= '0'; S1_in <= '0'; S0_in <= '1';
+    S3 <= '0'; S2 <= '0'; S1 <= '0'; S0 <= '1';
     wait for 1 ns;
-    assert(D1_out='1') report "Fail: D1 should be 1" severity error;
-    assert(D0_out='0') report "Fail: D0 should be 0" severity error;
+    assert(D1='1') report "Fail: D1 should be 1" severity error;
+    assert(D0='0') report "Fail: D0 should be 0" severity error;
 
     -- Test D2 (S3=0, S2=0, S1=1, S0=0)
-    S3_in <= '0'; S2_in <= '0'; S1_in <= '1'; S0_in <= '0';
+    S3 <= '0'; S2 <= '0'; S1 <= '1'; S0 <= '0';
     wait for 1 ns;
-    assert(D2_out='1') report "Fail: D2 should be 1" severity error;
+    assert(D2='1') report "Fail: D2 should be 1" severity error;
 
     -- Test D3 (S3=0, S2=0, S1=1, S0=1)
-    S3_in <= '0'; S2_in <= '0'; S1_in <= '1'; S0_in <= '1';
+    S3 <= '0'; S2 <= '0'; S1 <= '1'; S0 <= '1';
     wait for 1 ns;
-    assert(D3_out='1') report "Fail: D3 should be 1" severity error;
+    assert(D3='1') report "Fail: D3 should be 1" severity error;
 
     -- Test D4 (S3=0, S2=1, S1=0, S0=0)
-    S3_in <= '0'; S2_in <= '1'; S1_in <= '0'; S0_in <= '0';
+    S3 <= '0'; S2 <= '1'; S1 <= '0'; S0 <= '0';
     wait for 1 ns;
-    assert(D4_out='1') report "Fail: D4 should be 1" severity error;
+    assert(D4='1') report "Fail: D4 should be 1" severity error;
 
     -- Test D5 (S3=0, S2=1, S1=0, S0=1)
-    S3_in <= '0'; S2_in <= '1'; S1_in <= '0'; S0_in <= '1';
+    S3 <= '0'; S2 <= '1'; S1 <= '0'; S0 <= '1';
     wait for 1 ns;
-    assert(D5_out='1') report "Fail: D5 should be 1" severity error;
+    assert(D5='1') report "Fail: D5 should be 1" severity error;
 
     -- Test D6 (S3=0, S2=1, S1=1, S0=0)
-    S3_in <= '0'; S2_in <= '1'; S1_in <= '1'; S0_in <= '0';
+    S3 <= '0'; S2 <= '1'; S1 <= '1'; S0 <= '0';
     wait for 1 ns;
-    assert(D6_out='1') report "Fail: D6 should be 1" severity error;
+    assert(D6='1') report "Fail: D6 should be 1" severity error;
 
     -- Test D7 (S3=0, S2=1, S1=1, S0=1)
-    S3_in <= '0'; S2_in <= '1'; S1_in <= '1'; S0_in <= '1';
+    S3 <= '0'; S2 <= '1'; S1 <= '1'; S0 <= '1';
     wait for 1 ns;
-    assert(D7_out='1') report "Fail: D7 should be 1" severity error;
+    assert(D7='1') report "Fail: D7 should be 1" severity error;
 
     -- Test D8 (S3=1, S2=0, S1=0, S0=0)
-    S3_in <= '1'; S2_in <= '0'; S1_in <= '0'; S0_in <= '0';
+    S3 <= '1'; S2 <= '0'; S1 <= '0'; S0 <= '0';
     wait for 1 ns;
-    assert(D8_out='1') report "Fail: D8 should be 1" severity error;
+    assert(D8='1') report "Fail: D8 should be 1" severity error;
 
     -- Test D9 (S3=1, S2=0, S1=0, S0=1)
-    S3_in <= '1'; S2_in <= '0'; S1_in <= '0'; S0_in <= '1';
+    S3 <= '1'; S2 <= '0'; S1 <= '0'; S0 <= '1';
     wait for 1 ns;
-    assert(D9_out='1') report "Fail: D9 should be 1" severity error;
+    assert(D9='1') report "Fail: D9 should be 1" severity error;
 
     -- Test D10 (S3=1, S2=0, S1=1, S0=0)
-    S3_in <= '1'; S2_in <= '0'; S1_in <= '1'; S0_in <= '0';
+    S3 <= '1'; S2 <= '0'; S1 <= '1'; S0 <= '0';
     wait for 1 ns;
-    assert(D10_out='1') report "Fail: D10 should be 1" severity error;
+    assert(D10='1') report "Fail: D10 should be 1" severity error;
 
     -- Test D11 (S3=1, S2=0, S1=1, S0=1)
-    S3_in <= '1'; S2_in <= '0'; S1_in <= '1'; S0_in <= '1';
+    S3 <= '1'; S2 <= '0'; S1 <= '1'; S0 <= '1';
     wait for 1 ns;
-    assert(D11_out='1') report "Fail: D11 should be 1" severity error;
+    assert(D11='1') report "Fail: D11 should be 1" severity error;
 
     -- Test D12 (S3=1, S2=1, S1=0, S0=0)
-    S3_in <= '1'; S2_in <= '1'; S1_in <= '0'; S0_in <= '0';
+    S3 <= '1'; S2 <= '1'; S1 <= '0'; S0 <= '0';
     wait for 1 ns;
-    assert(D12_out='1') report "Fail: D12 should be 1" severity error;
+    assert(D12='1') report "Fail: D12 should be 1" severity error;
 
     -- Test D13 (S3=1, S2=1, S1=0, S0=1)
-    S3_in <= '1'; S2_in <= '1'; S1_in <= '0'; S0_in <= '1';
+    S3 <= '1'; S2 <= '1'; S1 <= '0'; S0 <= '1';
     wait for 1 ns;
-    assert(D13_out='1') report "Fail: D13 should be 1" severity error;
+    assert(D13='1') report "Fail: D13 should be 1" severity error;
 
     -- Test D14 (S3=1, S2=1, S1=1, S0=0)
-    S3_in <= '1'; S2_in <= '1'; S1_in <= '1'; S0_in <= '0';
+    S3 <= '1'; S2 <= '1'; S1 <= '1'; S0 <= '0';
     wait for 1 ns;
-    assert(D14_out='1') report "Fail: D14 should be 1" severity error;
+    assert(D14='1') report "Fail: D14 should be 1" severity error;
 
     -- Test D15 (S3=1, S2=1, S1=1, S0=1)
-    S3_in <= '1'; S2_in <= '1'; S1_in <= '1'; S0_in <= '1';
+    S3 <= '1'; S2 <= '1'; S1 <= '1'; S0 <= '1';
     wait for 1 ns;
-    assert(D15_out='1') report "Fail: D15 should be 1" severity error;
-    
-    S3_in <= '0'; S2_in <= '0'; S1_in <= '0'; S0_in <= '0';
+    assert(D15='1') report "Fail: D15 should be 1" severity error;
+
+    S3 <= '0'; S2 <= '0'; S1 <= '0'; S0 <= '0';
     wait for 1 ns;
 
     assert false report "Test done." severity note;
