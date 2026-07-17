@@ -6,9 +6,7 @@ port(
   S2: in std_logic;
   S1: in std_logic;
   S0: in std_logic;
-
   Y: in std_logic;
-
   D0: out std_logic;
   D1: out std_logic;
   D2: out std_logic;
@@ -26,7 +24,6 @@ port(
   D14: out std_logic;
   D15: out std_logic);
 end demux1to16;
-
 architecture rtl of demux1to16 is
 begin
   D0 <= Y and not S3 and not S2 and not S1 and not S0;
