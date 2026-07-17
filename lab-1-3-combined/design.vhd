@@ -1,6 +1,5 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
-
 -- Combined Selector (Top-level) - INLINED VERSION
 entity combined_selector is
 port(
@@ -9,7 +8,6 @@ port(
   S2_mux: in std_logic;
   S1_mux: in std_logic;
   S0_mux: in std_logic;
-
   -- 16 input lines
   D0_mux: in std_logic;
   D1_mux: in std_logic;
