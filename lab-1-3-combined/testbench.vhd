@@ -148,12 +148,12 @@ begin
     assert(D1_demux='1') report "Fail: D0->D1 should be 1" severity error;
     assert(D0_demux='0') report "Fail: D0_demux should be 0 in test 2" severity error;
 
-    -- Test 3: MUX select D5, DEMUX select D5 -> D5_demux should be 1
-    S3_mux <= '0'; S2_mux <= '1'; S1_mux <= '0'; S0_mux <= '1';
-    D0_mux <= '0'; D5_mux <= '1';
-    S3_demux <= '0'; S2_demux <= '1'; S1_demux <= '0'; S0_demux <= '1';
+    -- Test 3: MUX select D4, DEMUX select D9 -> D5_demux should be 1
+    S3_mux <= '0'; S2_mux <= '1'; S1_mux <= '0'; S0_mux <= '0';
+    D0_mux <= '0'; D4_mux <= '1';
+    S3_demux <= '1'; S2_demux <= '0'; S1_demux <= '0'; S0_demux <= '1';
     wait for 1 ns;
-    assert(D5_demux='1') report "Fail: D5->D5 should be 1" severity error;
+    assert(D9_demux='1') report "Fail: D5->D5 should be 1" severity error;
 
     -- Test 4: MUX select D7, DEMUX select D11 -> D11_demux should be 1
     S3_mux <= '0'; S2_mux <= '1'; S1_mux <= '1'; S0_mux <= '1';
